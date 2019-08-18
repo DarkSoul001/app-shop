@@ -31,27 +31,27 @@
             </thead>
             <tbody>
               @foreach($products as $product)
-                <tr>
-                  <td class="text-center">{{$product->id}}</td>
-                  <td>{{$product->name}}</td>
-                  <td>{{$product->description}}</td>
-                  <td>{{$product->category ?$product->category->name : 'General'}}</td>
-                  <td class="text-right">$ {{$product->price}}</td>
-                  <td class="td-actions text-right">
-                    <button type="button" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
+              <tr>
+                <td class="text-center">{{$product->id}}</td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->description}}</td>
+                <td>{{$product->category ?$product->category->name : 'General'}}</td>
+                <td class="text-right">$ {{$product->price}}</td>
+                <td class="td-actions text-right">
+                  <form method="post" action="{{url('/admin/product/'.$product->id.'/delete')}}">
+                    {{csrf_field()}}
+                    <a type="button" rel="tooltip" title="Ver Producto" class="btn btn-info btn-simple btn-xs">
                       <i class="fa fa-info"></i>
-                    </button>
+                    </a>
                     <a href="{{url('/admin/product/'.$product->id.'/edit')}}" rel="tooltip" title="Editar Producto" class="btn btn-success btn-simple btn-xs">
                       <i class="fa fa-edit"></i>
                     </a>
-                    <form method="post" action="{{url('/admin/product/'.$product->id.'/delete')}}">
-                      {{csrf_field()}}
-                      <button type="submit" rel="tooltip" title="Eliminar Producto" class="btn btn-danger btn-simple btn-xs">
-                        <i class="fa fa-times"></i>
-                      </button>
-                    </form>
-                  </td>
-                </tr>
+                    <button type="submit" rel="tooltip" title="Eliminar Producto" class="btn btn-danger btn-simple btn-xs">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </form>
+                </td>
+              </tr>
               @endforeach
             </tbody>
           </table>

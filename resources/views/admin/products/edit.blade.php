@@ -20,23 +20,23 @@
           <div class="col-sm-6">
             <div class="form-group label-floating">
               <label class="control-label">Nombre del Producto</label>
-              <input type="text" name="name" class="form-control" value="{{$product->name}}">
+              <input type="text" name="name" class="form-control" value="{{old('name',$product->name)}}" required="" minlength="3">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group label-floating">
               <label class="control-label">Precio del Producto</label>
-              <input type="number" step="0.01" name="price" class="form-control" value="{{$product->price}}">
+              <input type="number" step="0.01" name="price" class="form-control" value="{{old('price',$product->price)}}" required="" min="0">
             </div>
           </div>
         </div>
         <div class="form-group label-floating">
           <label class="control-label">Descripción corta</label>
-          <input type="text" name="description" class="form-control" value="{{$product->description}}">
+          <input type="text" name="description" class="form-control" value="{{old('description',$product->description)}}" required="" maxlength="200">
         </div>
 
         <div class="form-group label-floating">
-          <textarea class="form-control" placeholder="Descripción extensa del producto" name="long_description" rows="5">{{$product->long_description}}</textarea>
+          <textarea class="form-control" placeholder="Descripción extensa del producto" name="long_description" rows="5">{{old('long_description',$product->long_description)}}</textarea>
         </div>
         <button  class="btn btn-primary">Guardar Cambios</button>
         <a href="{{url('/admin/products')}}" class="btn btn-default">Cancelar</a>

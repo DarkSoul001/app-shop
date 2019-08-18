@@ -20,6 +20,21 @@ class ProductController extends Controller
     public function store(Request $request){
     	//registrar el nuevo prducto en la db
     	//dd($request->all());
+        $rules=[
+            'name' => 'required|min:3',
+            'description' => 'required|max:200',
+            'price' => 'required|numeric|min:0'
+        ];
+        $messages=[
+            'name.required' => 'Es necesario ingresar un nombre para el producto',
+            'name.min' => 'El producto debe tener almenos 3 caracteres',
+            'description.required' => 'Es necesario ingresar una descripción para el producto',
+            'description.max' => 'La descripción no puede superar los 200 caracteres',
+            'price.required' => 'Se debe establecer un precio para el producto',
+            'price.numeric' => 'El precio deben ser números',
+            'price.min' => 'El precio debe ser mayor o igual a 0'
+        ];
+        $this->validate($request,$rules,$messages);
     	$product=new Product();
     	$product->name=$request->input('name');
     	$product->description=$request->input('description');
@@ -38,6 +53,21 @@ class ProductController extends Controller
 
     public function update(Request $request,$id){
     	//buscamos el producto
+         $rules=[
+            'name' => 'required|min:3',
+            'description' => 'required|max:200',
+            'price' => 'required|numeric|min:0'
+        ];
+        $messages=[
+            'name.required' => 'Es necesario ingresar un nombre para el producto',
+            'name.min' => 'El producto debe tener almenos 3 caracteres',
+            'description.required' => 'Es necesario ingresar una descripción para el producto',
+            'description.max' => 'La descripción no puede superar los 200 caracteres',
+            'price.required' => 'Se debe establecer un precio para el producto',
+            'price.numeric' => 'El precio deben ser números',
+            'price.min' => 'El precio debe ser mayor o igual a 0'
+        ];
+        $this->validate($request,$rules,$messages);
     	$product=Product::find($id);
     	$product->name=$request->input('name');
     	$product->description=$request->input('description');
