@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->text('logn_description')->nullable();
+            $table->text('long_description')->nullable();
             $table->float('price');
             //foreign key
             $table->integer('category_id')->unsigned()->nullable();

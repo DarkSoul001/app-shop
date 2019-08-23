@@ -73,7 +73,7 @@ class ProductController extends Controller
     	$product->description=$request->input('description');
     	$product->price=$request->input('price');
     	$product->long_description=$request->input('long_description');
-    	$product->save(); // update db
+    	$product->save(); // update db 
 
     	return redirect('/admin/products');
     }

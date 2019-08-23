@@ -48,6 +48,11 @@
                       </a>
 
                       <ul class="dropdown-menu" role="menu">
+                        @if(auth()->user()->type_id==1)
+                        <li>
+                          <a href="{{url('/admin/products')}}">Gestionar Productos</a>
+                        </li>
+                        @endif
                           <li>
                               <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                        document.getElementById('logout-form').submit();">
