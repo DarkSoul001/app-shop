@@ -15,7 +15,7 @@ class AddTypeToUser extends Migration
     {
         //
         Schema::table('users',function($table){
-            $table->integer('type_id');
+            $table->integer('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('type_users');
         });
     }

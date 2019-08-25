@@ -27,21 +27,21 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <img src="{{$image->image}}" style="width: 250px; height: 250px;">
-              <input type="hidden" name="image_id" value="{{$image->id}}">
 
               <form method="POST" action="" style="display: inline-block;">
                 {{csrf_field()}}
                 {{method_field('DELETE')}}
+                <input type="hidden" name="image_id" value="{{$image->id}}">
                 <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
               </form>
               @if($image->featured)
               @else
-                <form method="POST" action="{{url('/admin/products/'.$product->id.'/images/featured/'.$image->id)}}" style="display: inline-block;">
-                  {{csrf_field()}}
-                  <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
-                    <i class="material-icons">favorite</i>
-                  </button>
-                </form>
+              <form method="POST" action="{{url('/admin/products/'.$product->id.'/images/featured/'.$image->id)}}" style="display: inline-block;">
+                {{csrf_field()}}
+                <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                  <i class="material-icons">favorite</i>
+                </button>
+              </form>
               @endif
             </div>
           </div>

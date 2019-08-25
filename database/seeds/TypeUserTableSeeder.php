@@ -14,6 +14,9 @@ class TypeUserTableSeeder extends Seeder
     {
         //
         TypeUser::create([
+            'type_user' => 'Administrador'
+        ]);
+        TypeUser::create([
         	'type_user' => 'Cliente'
         ]);
 
